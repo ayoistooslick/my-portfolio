@@ -363,7 +363,8 @@ if (typeof gsap !== 'undefined') {
 
   function updateAudioIcon() {
     if (!iconEl) return;
-    iconEl.className = isMuted ? 'fa-solid fa-volume-xmark' : 'fa-solid fa-volume-high';
+    const soundOn = !isMuted && isPlaying;
+    iconEl.className = soundOn ? 'fa-solid fa-volume-high' : 'fa-solid fa-volume-xmark';
   }
 
   function playCurrent() {
@@ -374,14 +375,21 @@ if (typeof gsap !== 'undefined') {
     audio.muted = isMuted;
     const promise = audio.play();
     if (promise !== undefined) {
-      promise.catch(err => {
+      promise.then(() => {
+        isPlaying = true;
+        updateAudioIcon();
+      }).catch(err => {
+        isPlaying = false;
+        updateAudioIcon();
         if (err.name === 'NotAllowedError' && !audioStarted) {
           showToast();
         }
         console.warn('Audio play failed:', err);
       });
+    } else {
+      isPlaying = true;
+      updateAudioIcon();
     }
-    isPlaying = true;
   }
 
   function switchTrack() {
@@ -419,8 +427,11 @@ if (typeof gsap !== 'undefined') {
       promise.then(() => {
         audioStarted = true;
         isPlaying = true;
+        updateAudioIcon();
         hideToast();
       }).catch(err => {
+        isPlaying = false;
+        updateAudioIcon();
         if (err.name === 'NotAllowedError') {
           showToast();
         }
@@ -435,6 +446,7 @@ if (typeof gsap !== 'undefined') {
   let toastShown = false;
 
   function showToast() {
+    if (!toast) return;
     if (toastShown) return;
     if (sessionStorage.getItem('audio-toast-dismissed') === 'true') return;
     toast.classList.add('show');
@@ -442,6 +454,7 @@ if (typeof gsap !== 'undefined') {
   }
 
   function hideToast() {
+    if (!toast) return;
     toast.classList.remove('show');
     toastShown = false;
   }
@@ -454,6 +467,7 @@ if (typeof gsap !== 'undefined') {
         promise.then(() => {
           audioStarted = true;
           isPlaying = true;
+          updateAudioIcon();
           hideToast();
         }).catch(err => {
           console.warn('Still cannot play:', err);
