@@ -58,7 +58,32 @@ body {
 .nav-links a:hover { color: var(--white); }
 .nav-links a.active { color: var(--white); }
 
-/* Audio toggle button – replaces the old nav-hire */
+/* Theme toggle button – fully transparent, only icon */
+.nav-theme-btn {
+  background: transparent;
+  border: none;
+  color: var(--text2);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 6px;
+  transition: color .2s, background .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.nav-theme-btn:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+.nav-theme-btn svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+  display: block;
+}
+
 .audio-toggle-btn {
   background: none;
   border: none;
