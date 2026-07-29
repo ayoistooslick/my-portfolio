@@ -1,3 +1,35 @@
+// Project cards live in projects.json so new projects can be added as objects
+// without changing the page markup.
+(async function renderProjects() {
+  const grid = document.getElementById('projects-grid');
+  if (!grid) return;
+
+  try {
+    const response = await fetch('projects.json');
+    if (!response.ok) throw new Error(`Could not load projects.json (${response.status})`);
+    const projects = await response.json();
+    grid.innerHTML = projects.map((project, index) => {
+      const delay = (index % 5) + 1;
+      const status = project.status ? ` <span>${project.status}</span>` : '';
+      const icons = project.stack.map((icon, iconIndex) =>
+        `<i class="${icon} icon-bounce icon-bounce-d${(iconIndex % 4) + 1}"></i>`
+      ).join('');
+      return `<div class="p-card rv rv-d${delay}">
+        <div class="p-card-shine"></div>
+        <img src="${project.image}" alt="${project.alt || `${project.name} project preview`}" class="p-img" />
+        <h3>${project.name}${status}</h3>
+        <p>${project.description}</p>
+        <a href="${project.url}" target="_blank" rel="noopener noreferrer" class="p-link">Visit Project <i class="fa-solid fa-arrow-right icon-bounce icon-bounce-d${delay}"></i></a>
+        <div class="p-stack">${icons}</div>
+      </div>`;
+    }).join('');
+    document.dispatchEvent(new CustomEvent('projects-ready'));
+  } catch (error) {
+    console.error(error);
+    grid.innerHTML = '<p>Projects could not be loaded right now.</p>';
+  }
+})();
+
 (function() {
   const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
@@ -67,7 +99,12 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+  const observeRevealElements = () => document.querySelectorAll('.rv:not([data-reveal-observed])').forEach(el => {
+    el.dataset.revealObserved = 'true';
+    io.observe(el);
+  });
+  observeRevealElements();
+  document.addEventListener('projects-ready', observeRevealElements);
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('.rv').forEach(el => el.classList.add('visible'));
@@ -253,7 +290,8 @@ if (typeof gsap !== 'undefined') {
 
 (function() {
   if (matchMedia('(pointer: coarse)').matches) return;
-  document.querySelectorAll('.p-card').forEach(card => {
+  const attachCardTilt = () => document.querySelectorAll('.p-card:not([data-tilt-attached])').forEach(card => {
+    card.dataset.tiltAttached = 'true';
     const shine = card.querySelector('.p-card-shine');
     card.addEventListener('mousemove', e => {
       const r = card.getBoundingClientRect();
@@ -272,6 +310,8 @@ if (typeof gsap !== 'undefined') {
       if (shine) shine.style.opacity = '0';
     });
   });
+  attachCardTilt();
+  document.addEventListener('projects-ready', attachCardTilt);
 })();
 
 (function() {
