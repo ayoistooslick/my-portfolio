@@ -25,7 +25,7 @@
   },
   {
     "name": "Receiptor-x",
-    "status": "Under Development",
+    "status": "Suspended",
     "image": "public/rcx.png",
     "alt": "Receiptor-X",
     "description": "Photographic payment verification via receipt scanning. Zero friction, zero cost, making payment confirmation accessible.",
@@ -40,5 +40,18 @@
     "description": "An AI CLI coding agent that writes, debugs, and refactors code right from your terminal. Built for speed, context, and real dev workflows.",
     "url": "https://ayox.my.id",
     "stack": ["fa-brands fa-react", "fa-solid fa-code", "fa-solid fa-database"]
+  },
+  {
+  "name": "MultiAuthy",
+  "status": "Latest Project.",
+  "image": "https://multiauth.name.ng/favicon.ico",
+  "alt": "MultiAuth Logo.",
+  "description": "Unifies authentication flows from providers like Google, GitHub, Gitlab, Apple and more, into a single SDK.",
+  "url": "https://multiauth.name.ng",
+  "stack": [
+    "fa-brands fa-react",
+    "fa-brands fa-node-js",
+    "fa-solid fa-database"
+  ]
   }
 ]
