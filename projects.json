@@ -12,7 +12,7 @@
     "image": "public/blaq.png",
     "alt": "Blaq Store",
     "description": "A structured marketplace for virtual gaming accounts, providing a trust-first environment for buying and selling.",
-    "url": "https://blaq-store.com.ng",
+    "url": "https://ngffmarket.com.ng",
     "stack": ["fa-brands fa-js", "fa-brands fa-node-js", "fa-solid fa-database"]
   },
   {
@@ -42,12 +42,12 @@
     "stack": ["fa-brands fa-react", "fa-solid fa-code", "fa-solid fa-database"]
   },
   {
-  "name": "MultiAuthy",
+  "name": "Plainscript",
   "status": "Latest Project.",
-  "image": "https://multiauth.name.ng/favicon.ico",
-  "alt": "MultiAuth Logo.",
-  "description": "Unifies authentication flows from providers like Google, GitHub, Gitlab, Apple and more, into a single SDK.",
-  "url": "https://multiauth.name.ng",
+  "image": "https://github.com/ayoistooslick/plainscript/blob/main/docs/logo.png",
+  "alt": "Plainscript-lang Icon.",
+  "description": "PlainScript is an Intent-Oriented Programming Language. You describe what you want; the compiler decides how to implement it in JavaScript.",
+  "url": "https://ayoistooslick.github.io/plainscript",
   "stack": [
     "fa-brands fa-react",
     "fa-brands fa-node-js",
