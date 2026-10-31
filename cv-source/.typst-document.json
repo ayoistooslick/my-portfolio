@@ -1,0 +1,10 @@
+{
+  "entry": "main.typ",
+  "metadata": {
+    "author": "Ayodele Ayokunle David",
+    "subtitle": "Designed portfolio CV",
+    "title": "Ayodele Ayokunle David — Developer CV"
+  },
+  "mode": "report",
+  "theme": "report-theme.typ"
+}
