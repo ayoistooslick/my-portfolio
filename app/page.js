@@ -131,7 +131,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer"><div className="footer-shell"><Link className="wordmark" href="#top" aria-label="Back to top"><span>ay</span><i>.</i></Link><p>Ayodele Ayokunle David <span>·</span> Building things that matter.</p><div className="footer-links"><a href="https://github.com/ayoistooslick" {...external}>GitHub</a><a href="https://www.linkedin.com/in/ayodele-david-206828445" {...external}>LinkedIn</a><a href="https://x.com/ayoistooslick" {...external}>X</a><a href="https://ayo-portal.netlify.app">Portfolio</a></div><a className="back-top" href="#top">Back to top ↑</a></div></footer>
+      <footer className="site-footer"><div className="footer-shell"><Link className="wordmark" href="#top" aria-label="Back to top"><span>ay</span><i>.</i></Link><p>Ayodele Ayokunle David <span>·</span> Building things that matter.</p><div className="footer-links"><a href="https://github.com/ayoistooslick" {...external}>GitHub</a><a href="https://www.linkedin.com/in/ayodele-david-206828445" {...external}>LinkedIn</a><a href="https://x.com/ayoistooslick" {...external}>X</a><a href="https://ayoistooslick.netlify.app">Portfolio</a></div><a className="back-top" href="#top">Back to top ↑</a></div></footer>
     </>
   );
 }

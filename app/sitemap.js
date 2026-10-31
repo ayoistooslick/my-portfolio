@@ -1,7 +1,9 @@
+export const dynamic = "force-static";
+
 export default function sitemap() {
   return [
     {
-      url: "https://ayo-portal.netlify.app",
+      url: "https://ayoistooslick.netlify.app",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,

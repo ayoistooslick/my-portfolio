@@ -1,7 +1,7 @@
 import "./css/globals.scss";
 
 export const metadata = {
-  metadataBase: new URL("https://ayo-portal.netlify.app"),
+  metadataBase: new URL("https://ayoistooslick.netlify.app"),
   title: {
     default: "Ayodele Ayokunle David — Full-Stack Developer",
     template: "%s — Ayodele Ayokunle David",
@@ -9,13 +9,13 @@ export const metadata = {
   description:
     "Ayodele Ayokunle David is a Nigerian full-stack developer interested in backend systems, programming languages, systems architecture and product engineering.",
   applicationName: "Ayodele Ayokunle David — Portfolio",
-  authors: [{ name: "Ayodele Ayokunle David", url: "https://ayo-portal.netlify.app" }],
+  authors: [{ name: "Ayodele Ayokunle David", url: "https://ayoistooslick.netlify.app" }],
   creator: "Ayodele Ayokunle David",
-  alternates: { canonical: "https://ayo-portal.netlify.app" },
+  alternates: { canonical: "https://ayoistooslick.netlify.app" },
   openGraph: {
     type: "website",
     locale: "en_NG",
-    url: "https://ayo-portal.netlify.app",
+    url: "https://ayoistooslick.netlify.app",
     siteName: "Ayodele Ayokunle David",
     title: "Ayodele Ayokunle David — Full-Stack Developer",
     description:
